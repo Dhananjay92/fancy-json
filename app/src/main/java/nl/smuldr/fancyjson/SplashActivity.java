@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import nl.smuldr.fancyjson.post.PostListActivity;
+import nl.smuldr.fancyjson.post.overview.PostListActivity;
 
 /**
  * Super light activity that shows a simple splash screen while the application loads.

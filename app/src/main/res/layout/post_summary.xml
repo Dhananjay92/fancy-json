@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nl.smuldr.fancyjson.post.ui.PostSummaryView xmlns:android="http://schemas.android.com/apk/res/android"
+<nl.smuldr.fancyjson.post.overview.ui.PostSummaryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -36,4 +36,4 @@
         android:textAppearance="@android:style/TextAppearance.Material.Body1"
         tools:text="quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error" />
 
-</nl.smuldr.fancyjson.post.ui.PostSummaryView>
+</nl.smuldr.fancyjson.post.overview.ui.PostSummaryView>

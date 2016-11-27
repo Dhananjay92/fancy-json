@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post;
+package nl.smuldr.fancyjson.post.overview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,8 +14,8 @@ import javax.inject.Inject;
 
 import nl.smuldr.fancyjson.MyApplication;
 import nl.smuldr.fancyjson.R;
-import nl.smuldr.fancyjson.post.ui.DividersItemDecoration;
-import nl.smuldr.fancyjson.post.ui.PostAdapter;
+import nl.smuldr.fancyjson.post.overview.ui.DividersItemDecoration;
+import nl.smuldr.fancyjson.post.overview.ui.PostAdapter;
 import nl.smuldr.fancyjson.shared.model.Post;
 
 public final class PostListActivity extends AppCompatActivity implements PostListPresenter.View {

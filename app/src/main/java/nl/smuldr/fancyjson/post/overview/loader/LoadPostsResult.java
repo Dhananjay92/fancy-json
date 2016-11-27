@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post.loader;
+package nl.smuldr.fancyjson.post.overview.loader;
 
 import java.util.List;
 

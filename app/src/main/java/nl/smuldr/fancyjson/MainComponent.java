@@ -4,7 +4,7 @@ package nl.smuldr.fancyjson;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import nl.smuldr.fancyjson.post.PostListActivity;
+import nl.smuldr.fancyjson.post.overview.PostListActivity;
 import nl.smuldr.fancyjson.shared.AppModule;
 import nl.smuldr.fancyjson.shared.network.NetworkModule;
 

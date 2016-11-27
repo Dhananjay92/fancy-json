@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".post.PostListActivity" />
+        <activity android:name=".post.overview.PostListActivity" />
 
     </application>
 

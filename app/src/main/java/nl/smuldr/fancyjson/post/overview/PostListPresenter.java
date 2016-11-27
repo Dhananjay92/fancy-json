@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post;
+package nl.smuldr.fancyjson.post.overview;
 
 
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import nl.smuldr.fancyjson.post.loader.LoadPostsResult;
-import nl.smuldr.fancyjson.post.loader.PostsLoader;
+import nl.smuldr.fancyjson.post.overview.loader.LoadPostsResult;
+import nl.smuldr.fancyjson.post.overview.loader.PostsLoader;
 import nl.smuldr.fancyjson.shared.model.Post;
 import timber.log.Timber;
 
