@@ -14,6 +14,7 @@ public class PostSummaryView extends LinearLayout {
 
     private TextView title;
     private TextView body;
+    private TextView username;
 
     public PostSummaryView(final Context context) {
         this(context, null);
@@ -36,10 +37,12 @@ public class PostSummaryView extends LinearLayout {
         super.onFinishInflate();
         title = (TextView) findViewById(R.id.title);
         body = (TextView) findViewById(R.id.body);
+        username = (TextView) findViewById(R.id.user);
     }
 
     public void setData(final Post post) {
         title.setText(post.getTitle());
         body.setText(post.getBody());
+        username.setText(post.getUser().getUsername());
     }
 }

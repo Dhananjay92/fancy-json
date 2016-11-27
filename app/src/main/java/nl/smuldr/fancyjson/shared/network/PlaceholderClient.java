@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import nl.smuldr.fancyjson.shared.model.Post;
+import nl.smuldr.fancyjson.shared.model.PartialPost;
 import nl.smuldr.fancyjson.shared.model.User;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -22,22 +22,12 @@ public class PlaceholderClient {
         this.service = retrofit.create(PlaceholderBackend.class);
     }
 
-    public List<Post> getPosts() throws IOException {
-        final Response<List<Post>> response = service.getPosts().execute();
+    public List<PartialPost> getPosts() throws IOException {
+        final Response<List<PartialPost>> response = service.getPosts().execute();
         if (response.isSuccessful()) {
             return response.body();
         } else {
             Timber.w("Failed to get posts: %s", response.errorBody().string());
-            throw new IOException(response.errorBody().string());
-        }
-    }
-
-    public Post getPostDetails(long postId) throws IOException {
-        final Response<Post> response = service.getPostDetails(postId).execute();
-        if (response.isSuccessful()) {
-            return response.body();
-        } else {
-            Timber.w("Failed to get post details: %s", response.errorBody().string());
             throw new IOException(response.errorBody().string());
         }
     }
