@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- some packages that are referenced in libraries cause errors in Android Lint but these can be safely ignored -->
+    <issue id="InvalidPackage">
+        <ignore path="*/com.squareup.okio/okio/*"/>
+        <ignore path="*/com.squareup.retrofit2/retrofit/*"/>
+        <ignore path="*MembersInjector*"/>
+    </issue>
+</lint>
