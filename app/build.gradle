@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion android_compileSdkVersion.toInteger()
+    buildToolsVersion android_buildToolsVersion
+    defaultConfig {
+        applicationId "nl.smuldr.fancyjson"
+        minSdkVersion android_minSdkVersion.toInteger()
+        targetSdkVersion android_targetSdkVersion.toInteger()
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        // shared debug keystore to make it easier to share test devices
+        debug {
+            storeFile project.file('debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+        // release build is signed with debug keystore,
+        // unless the real signing config is available as project property
+        release {
+            storeFile project.file(findProperty('signing_storeFile') ?: 'debug.keystore')
+            storePassword findProperty('signing_storePassword') ?: 'android'
+            keyAlias findProperty('signing_keyAlias') ?: 'androiddebugkey'
+            keyPassword findProperty('signing_keyPassword') ?: 'android'
+        }
+    }
+    lintOptions {
+        // fail the build on all errors and warnings because we are hardcore
+        abortOnError true
+        warningsAsErrors true
+        // ignore warnings about new APIs: Travis does not provide the right platform tools to check the new API 25
+        ignore 'NewApi'
+        // we don't need no stinkin' XML
+        xmlReport false
+        // report errors to stdout so they are visible in the CI logs
+        textReport true
+        textOutput 'stdout'
+    }
+}
+
+dependencies {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$version_espresso", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$version_supportLib"
+    testCompile "junit:junit:$version_junit"
+}
