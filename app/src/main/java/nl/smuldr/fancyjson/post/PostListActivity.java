@@ -14,6 +14,7 @@ import javax.inject.Inject;
 
 import nl.smuldr.fancyjson.MyApplication;
 import nl.smuldr.fancyjson.R;
+import nl.smuldr.fancyjson.post.ui.DividersItemDecoration;
 import nl.smuldr.fancyjson.post.ui.PostAdapter;
 import nl.smuldr.fancyjson.shared.model.Post;
 
@@ -37,6 +38,7 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         recyclerView = (RecyclerView) findViewById(R.id.posts);
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new DividersItemDecoration(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
