@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import nl.smuldr.fancyjson.post.PostListActivity;
+
 /**
  * Super light activity that shows a simple splash screen while the application loads.
  */
@@ -15,8 +17,7 @@ public final class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         // do not set a content view: use the theme to show an image as window background
 
-        // carry on to the main activity
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, PostListActivity.class));
         finish();
     }
 }

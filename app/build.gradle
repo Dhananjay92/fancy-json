@@ -55,6 +55,7 @@ dependencies {
     })
     apt "com.google.dagger:dagger-compiler:$version_dagger"
     compile "com.android.support:appcompat-v7:$version_supportLib"
+    compile "com.android.support:recyclerview-v7:$version_supportLib"
     compile "com.google.dagger:dagger:$version_dagger"
     compile "com.jakewharton.timber:timber:$version_timber"
     compile "com.squareup.moshi:moshi:$version_moshi"
