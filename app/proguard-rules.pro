@@ -65,3 +65,13 @@
 -keep public class * extends android.support.v4.view.ActionProvider {
     public <init>(android.content.Context);
 }
+
+###################################
+# Moshi
+###################################
+
+-keep class com.squareup.moshi.** { *; }
+-keep interface com.squareup.moshi.** { *; }
+-dontwarn com.squareup.moshi.**
+# keep the model classes too
+-keep public class nl.smuldr.fancyjson.shared.model.** { *; }
