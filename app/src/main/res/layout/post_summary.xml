@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/listPreferredItemHeightLarge"
+    android:background="?attr/selectableItemBackground"
     android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
     android:orientation="vertical"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingTop="16dp">
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/email"
@@ -16,7 +17,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         tools:text="jeremy.harann@waino.me" />
 
     <TextView
@@ -26,7 +27,7 @@
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textAppearance="@android:style/TextAppearance.Material.SearchResult.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
         tools:text="optio molestias id quia eum" />
 
 </nl.smuldr.fancyjson.post.overview.view.PostSummaryView>

@@ -26,11 +26,7 @@ public class PostSummaryView extends LinearLayout {
     }
 
     public PostSummaryView(final Context context, @Nullable final AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    public PostSummaryView(final Context context, @Nullable final AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
     }
 
     @Override

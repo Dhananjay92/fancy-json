@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         tools:text="jeremy.harann@waino.me" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textAppearance="@android:style/TextAppearance.Material.SearchResult.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
         tools:text="optio molestias id quia eum" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:paddingBottom="8dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:text="quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error" />
 
 </nl.smuldr.fancyjson.post.details.view.PostDetailsView>
