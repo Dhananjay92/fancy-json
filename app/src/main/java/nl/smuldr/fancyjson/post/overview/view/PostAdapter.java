@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post.overview.ui;
+package nl.smuldr.fancyjson.post.overview.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

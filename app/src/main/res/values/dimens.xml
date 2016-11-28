@@ -2,4 +2,5 @@
 <resources>
     <dimen name="divider_height">1dp</dimen>
     <dimen name="divider_inset">16dp</dimen>
+    <dimen name="elevation_toolbar">4dp</dimen>
 </resources>

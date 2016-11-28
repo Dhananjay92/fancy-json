@@ -1,6 +1,7 @@
 package nl.smuldr.fancyjson.post.overview;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,14 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import nl.smuldr.fancyjson.MyApplication;
 import nl.smuldr.fancyjson.R;
-import nl.smuldr.fancyjson.post.overview.ui.DividersItemDecoration;
-import nl.smuldr.fancyjson.post.overview.ui.PostAdapter;
+import nl.smuldr.fancyjson.post.overview.view.DividersItemDecoration;
+import nl.smuldr.fancyjson.post.overview.view.PostAdapter;
 import nl.smuldr.fancyjson.shared.model.Post;
 
 public final class PostListActivity extends AppCompatActivity implements PostListPresenter.View {
@@ -24,9 +26,10 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
     @Inject
     PostListPresenter presenter;
 
+    private final List<Post> data = new ArrayList<>();
+
     private RecyclerView recyclerView;
     private PostAdapter adapter;
-    private List<Post> data;
     private ProgressBar progressBar;
 
     @Override
@@ -44,6 +47,9 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividersItemDecoration(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new PostAdapter(data);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -60,19 +66,10 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
     }
 
     @Override
-    public void showPosts(final List<Post> posts) {
+    public void showPosts(@NonNull final List<Post> posts) {
         setLoading(false);
-        data = posts;
-        adapter = new PostAdapter(posts);
-        recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    public void clear() {
-        if (data != null && adapter != null) {
-            data.clear();
-            adapter.notifyDataSetChanged();
-        }
+        data.addAll(posts);
+        adapter.notifyDataSetChanged();
     }
 
     private void setLoading(boolean loading) {

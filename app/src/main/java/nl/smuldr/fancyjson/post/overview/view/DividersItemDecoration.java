@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post.overview.ui;
+package nl.smuldr.fancyjson.post.overview.view;
 
 import android.content.Context;
 import android.content.res.Resources;

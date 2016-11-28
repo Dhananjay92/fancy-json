@@ -1,4 +1,4 @@
-package nl.smuldr.fancyjson.post.overview.ui;
+package nl.smuldr.fancyjson.post.overview.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -13,8 +13,7 @@ import nl.smuldr.fancyjson.shared.model.Post;
 public class PostSummaryView extends LinearLayout {
 
     private TextView title;
-    private TextView body;
-    private TextView username;
+    private TextView email;
 
     public PostSummaryView(final Context context) {
         this(context, null);
@@ -36,13 +35,11 @@ public class PostSummaryView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         title = (TextView) findViewById(R.id.title);
-        body = (TextView) findViewById(R.id.body);
-        username = (TextView) findViewById(R.id.user);
+        email = (TextView) findViewById(R.id.email);
     }
 
     public void setData(final Post post) {
         title.setText(post.getTitle());
-        body.setText(post.getBody());
-        username.setText(post.getUser().getUsername());
+        email.setText(post.getUser().getEmail());
     }
 }

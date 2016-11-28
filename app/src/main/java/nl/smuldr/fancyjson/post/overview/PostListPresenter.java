@@ -2,6 +2,7 @@ package nl.smuldr.fancyjson.post.overview;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 
@@ -9,12 +10,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import nl.smuldr.fancyjson.post.overview.loader.LoadPostsResult;
-import nl.smuldr.fancyjson.post.overview.loader.PostsLoader;
+import nl.smuldr.fancyjson.shared.LoadResult;
 import nl.smuldr.fancyjson.shared.model.Post;
 import timber.log.Timber;
 
-final class PostListPresenter implements LoaderManager.LoaderCallbacks<LoadPostsResult> {
+public final class PostListPresenter implements LoaderManager.LoaderCallbacks<LoadResult<List<Post>>> {
 
     private final PostsLoader postsLoader;
     private View view;
@@ -33,12 +33,12 @@ final class PostListPresenter implements LoaderManager.LoaderCallbacks<LoadPosts
     }
 
     @Override
-    public Loader<LoadPostsResult> onCreateLoader(int id, final Bundle args) {
+    public Loader<LoadResult<List<Post>>> onCreateLoader(int id, final Bundle args) {
         return postsLoader;
     }
 
     @Override
-    public void onLoadFinished(final Loader<LoadPostsResult> loader, final LoadPostsResult result) {
+    public void onLoadFinished(final Loader<LoadResult<List<Post>>> loader, final LoadResult<List<Post>> result) {
         if (view == null) {
             return;
         }
@@ -51,14 +51,11 @@ final class PostListPresenter implements LoaderManager.LoaderCallbacks<LoadPosts
     }
 
     @Override
-    public void onLoaderReset(final Loader<LoadPostsResult> loader) {
-        if (view != null) {
-            view.clear();
-        }
+    public void onLoaderReset(final Loader<LoadResult<List<Post>>> loader) {
+        // nothing to do
     }
 
     interface View {
-        void clear();
-        void showPosts(List<Post> posts);
+        void showPosts(@NonNull List<Post> posts);
     }
 }

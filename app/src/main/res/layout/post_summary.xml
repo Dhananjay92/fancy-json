@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nl.smuldr.fancyjson.post.overview.ui.PostSummaryView xmlns:android="http://schemas.android.com/apk/res/android"
+<nl.smuldr.fancyjson.post.overview.view.PostSummaryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="?attr/listPreferredItemHeightLarge"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingTop="16dp">
 
     <TextView
-        android:id="@+id/user"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Material.Caption"
         android:ellipsize="end"
         android:maxLines="1"
-        tools:text="Cthulu"/>
+        android:textAppearance="@android:style/TextAppearance.Material.Caption"
+        tools:text="jeremy.harann@waino.me" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textAppearance="@android:style/TextAppearance.Material.SearchResult.Title"
         tools:text="optio molestias id quia eum" />
 
-    <TextView
-        android:id="@+id/body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textAppearance="@android:style/TextAppearance.Material.Body1"
-        tools:text="quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error" />
-
-</nl.smuldr.fancyjson.post.overview.ui.PostSummaryView>
+</nl.smuldr.fancyjson.post.overview.view.PostSummaryView>

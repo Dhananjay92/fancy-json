@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".post.overview.PostListActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:theme="@style/FancyJSONTheme.ActionBar" />
+        android:elevation="@dimen/elevation_toolbar"
+        android:theme="@style/FancyJSONTheme.ActionBar"
+        tools:ignore="UnusedAttribute" />
 
     <FrameLayout
         android:layout_width="match_parent"

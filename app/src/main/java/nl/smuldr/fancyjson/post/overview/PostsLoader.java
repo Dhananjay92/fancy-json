@@ -1,17 +1,20 @@
-package nl.smuldr.fancyjson.post.overview.loader;
+package nl.smuldr.fancyjson.post.overview;
 
 
 import android.app.Application;
 import android.support.v4.content.AsyncTaskLoader;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 
+import nl.smuldr.fancyjson.shared.LoadResult;
+import nl.smuldr.fancyjson.shared.model.Post;
 import nl.smuldr.fancyjson.shared.storage.PostRepository;
 
 
-public class PostsLoader extends AsyncTaskLoader<LoadPostsResult> {
+public class PostsLoader extends AsyncTaskLoader<LoadResult<List<Post>>> {
 
     private final PostRepository repository;
 
@@ -22,11 +25,11 @@ public class PostsLoader extends AsyncTaskLoader<LoadPostsResult> {
     }
 
     @Override
-    public LoadPostsResult loadInBackground() {
+    public LoadResult<List<Post>> loadInBackground() {
         try {
-            return new LoadPostsResult(repository.getPosts());
+            return new LoadResult<>(repository.getPosts());
         } catch (IOException e) {
-            return new LoadPostsResult(e);
+            return new LoadResult<>(e);
         }
     }
 
