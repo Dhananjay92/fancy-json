@@ -12,12 +12,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
     signingConfigs {
         // shared debug keystore to make it easier to share test devices
         debug {
@@ -33,6 +27,13 @@ android {
             storePassword findProperty('signing_storePassword') ?: 'android'
             keyAlias findProperty('signing_keyAlias') ?: 'androiddebugkey'
             keyPassword findProperty('signing_keyPassword') ?: 'android'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     lintOptions {
