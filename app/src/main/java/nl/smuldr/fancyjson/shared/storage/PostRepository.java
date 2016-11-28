@@ -8,17 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import nl.smuldr.fancyjson.shared.model.Comment;
 import nl.smuldr.fancyjson.shared.model.PartialPost;
 import nl.smuldr.fancyjson.shared.model.Post;
 import nl.smuldr.fancyjson.shared.model.User;
 import nl.smuldr.fancyjson.shared.network.PlaceholderClient;
 
 
+@Singleton
 public class PostRepository {
 
     private final PlaceholderClient client;
     private final UserRepository userRepository;
+
     private List<Post> cachedPosts = null;
     private long cacheTimestamp = 0L;
 
@@ -35,6 +39,31 @@ public class PostRepository {
             cacheTimestamp = System.currentTimeMillis();
         }
         return cachedPosts;
+    }
+
+    public Post getPost(long postId) throws IOException {
+        Post result = null;
+        if (cachedPosts != null && !isCacheOutdated()) {
+            for (final Post cachedPost : cachedPosts) {
+                if (cachedPost.getId() == postId) {
+                    result = cachedPost;
+                }
+            }
+        }
+        if (result == null) {
+            final PartialPost partialPost = client.getPost(postId);
+            final User user = client.getUserDetails(partialPost.getUserId());
+            result = Post.createFromPartial(partialPost, user);
+            if (cachedPosts != null) {
+                cachedPosts.add(result);
+            }
+            // TODO: what if cachedPosts is null?
+        }
+        return result;
+    }
+
+    public List<Comment> getComments(long postId) throws IOException {
+        return client.getComments(postId);
     }
 
     private List<Post> loadFromNetwork() throws IOException {

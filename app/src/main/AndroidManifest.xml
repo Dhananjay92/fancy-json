@@ -25,6 +25,8 @@
 
         <activity android:name=".post.overview.PostListActivity" />
 
+        <activity android:name=".post.details.PostDetailsActivity" />
+
     </application>
 
 </manifest>

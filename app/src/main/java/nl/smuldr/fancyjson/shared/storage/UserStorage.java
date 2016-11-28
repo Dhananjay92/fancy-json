@@ -6,19 +6,22 @@ import android.util.LongSparseArray;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import nl.smuldr.fancyjson.shared.model.User;
 
-public final class LocalStorage {
+
+@Singleton
+final class UserStorage {
 
     private final LongSparseArray<User> cache = new LongSparseArray<>();
 
     @Inject
-    public LocalStorage() {
+    UserStorage() {
         // annotated constructor for Dagger
     }
 
-    public User findUserDetails(long userId) throws IOException {
+    User findUserDetails(long userId) throws IOException {
         final User user = cache.get(userId);
         if (user != null) {
             return user;
@@ -27,7 +30,7 @@ public final class LocalStorage {
         }
     }
 
-    public void insertUserDetails(final User user) throws IOException {
+    void insertUserDetails(final User user) throws IOException {
         cache.put(user.getId(), user);
     }
 }

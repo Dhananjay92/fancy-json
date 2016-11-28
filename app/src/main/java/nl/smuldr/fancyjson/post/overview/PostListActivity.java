@@ -35,7 +35,7 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
     @Override
     public void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.post_list);
+        setContentView(R.layout.activity_overview);
 
         ((MyApplication) getApplication()).getMainComponent().inject(this);
 
@@ -48,7 +48,7 @@ public final class PostListActivity extends AppCompatActivity implements PostLis
         recyclerView.addItemDecoration(new DividersItemDecoration(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new PostAdapter(data);
+        adapter = new PostAdapter(data, presenter);
         recyclerView.setAdapter(adapter);
     }
 

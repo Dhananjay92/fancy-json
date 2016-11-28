@@ -1,6 +1,7 @@
 package nl.smuldr.fancyjson.post.overview;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import nl.smuldr.fancyjson.post.details.PostDetailsActivity;
 import nl.smuldr.fancyjson.shared.LoadResult;
 import nl.smuldr.fancyjson.shared.model.Post;
 import timber.log.Timber;
@@ -30,6 +32,10 @@ public final class PostListPresenter implements LoaderManager.LoaderCallbacks<Lo
 
     void unsubscribe() {
         view = null;
+    }
+
+    public void onPostClick(final Context context, final Post post) {
+        context.startActivity(PostDetailsActivity.createIntent(context, post.getId()));
     }
 
     @Override

@@ -4,27 +4,30 @@ package nl.smuldr.fancyjson.shared.storage;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import nl.smuldr.fancyjson.shared.model.User;
 import nl.smuldr.fancyjson.shared.network.PlaceholderClient;
 
+
+@Singleton
 public final class UserRepository {
 
-    private final LocalStorage localStorage;
+    private final UserStorage userStorage;
     private final PlaceholderClient client;
 
     @Inject
-    public UserRepository(final LocalStorage localStorage, final PlaceholderClient client) {
-        this.localStorage = localStorage;
+    public UserRepository(final UserStorage userStorage, final PlaceholderClient client) {
+        this.userStorage = userStorage;
         this.client = client;
     }
 
     public User getUserDetails(long userId) throws IOException {
         try {
-            return localStorage.findUserDetails(userId);
+            return userStorage.findUserDetails(userId);
         } catch (final IOException e) {
             final User user = client.getUserDetails(userId);
-            localStorage.insertUserDetails(user);
+            userStorage.insertUserDetails(user);
             return user;
         }
     }
