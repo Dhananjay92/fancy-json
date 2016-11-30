@@ -7,20 +7,12 @@ public final class User {
     private final String name;
     private final String username;
     private final String email;
-    private final Address address;
-    private final String telephone;
-    private final String website;
-    private final Company company;
 
-    public User(final long id, final String name, final String username, final String email, final Address address, final String telephone, final String website, final Company company) {
+    public User(final long id, final String name, final String username, final String email) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
-        this.address = address;
-        this.telephone = telephone;
-        this.website = website;
-        this.company = company;
     }
 
     public long getId() {
@@ -39,19 +31,36 @@ public final class User {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (id != user.id) return false;
+        if (!name.equals(user.name)) return false;
+        if (!username.equals(user.username)) return false;
+        return email.equals(user.email);
+
     }
 
-    public String getTelephone() {
-        return telephone;
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + name.hashCode();
+        result = 31 * result + username.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
     }
 
-    public String getWebsite() {
-        return website;
-    }
-
-    public Company getCompany() {
-        return company;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

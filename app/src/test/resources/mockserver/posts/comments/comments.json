@@ -1,0 +1,23 @@
+[
+  {
+    "postId": 1,
+    "id": 1,
+    "name": "Alice",
+    "email": "Alice@gardner.biz",
+    "body": "foo"
+  },
+  {
+    "postId": 1,
+    "id": 2,
+    "name": "Bob",
+    "email": "bob@sydney.com",
+    "body": "bar"
+  },
+  {
+    "postId": 1,
+    "id": 3,
+    "name": "Carol",
+    "email": "carol@garfield.biz",
+    "body": "baz"
+  }
+]
