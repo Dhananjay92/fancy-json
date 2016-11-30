@@ -48,6 +48,10 @@ android {
         textReport true
         textOutput 'stdout'
     }
+    testOptions {
+        // shut up error about unmocked APIs: https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#mocking-dependencies
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
