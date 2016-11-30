@@ -39,4 +39,37 @@ public final class Post {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        if (id != post.id) return false;
+        if (!user.equals(post.user)) return false;
+        if (!title.equals(post.title)) return false;
+        return body.equals(post.body);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + user.hashCode();
+        result = 31 * result + title.hashCode();
+        result = 31 * result + body.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", user=" + user +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
+    }
 }

@@ -69,4 +69,5 @@ dependencies {
     testCompile("com.squareup.okhttp3:mockwebserver:$version_okhttp") {
         exclude group: 'com.squareup.okio', module: 'okio'
     }
+    testCompile 'org.mockito:mockito-core:2.2.26'
 }

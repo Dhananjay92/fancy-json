@@ -11,7 +11,7 @@ import nl.smuldr.fancyjson.shared.network.PlaceholderClient;
 
 
 @Singleton
-public final class UserRepository {
+final class UserRepository {
 
     private final UserStorage userStorage;
     private final PlaceholderClient client;
@@ -22,7 +22,7 @@ public final class UserRepository {
         this.client = client;
     }
 
-    public User getUserDetails(long userId) throws IOException {
+    User getUserDetails(long userId) throws IOException {
         try {
             return userStorage.findUserDetails(userId);
         } catch (final IOException e) {
